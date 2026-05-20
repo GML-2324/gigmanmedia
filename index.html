@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gigman Media — Premium Creative Media Agency</title>
+  <meta name="description" content="Gigman Media is a premium creative media agency. High-impact video production, photography, social media management, branding & design, and content strategy.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Custom Cursor & Ring -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="nav-logo-link" aria-label="Gigman Media Logo">
+      <img src="assets/YellowMono.png" class="nav-logo-img logo-light" alt="Gigman Media Logo">
+      <img src="assets/BlackMono.png" class="nav-logo-img logo-dark" alt="Gigman Media Logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+    </ul>
+    
+    <div class="nav-controls">
+      <!-- Sound Micro-haptics toggle -->
+      <button class="icon-btn" id="sound-toggle" aria-label="Toggle sound effects">
+        <!-- Sound OFF (Default muted to respect browser policy) -->
+        <svg id="sound-off" viewBox="0 0 24 24">
+          <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+        </svg>
+        <!-- Sound ON -->
+        <svg id="sound-on" viewBox="0 0 24 24" style="display:none;">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+      </button>
+
+      <!-- Dynamic Theme switcher -->
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle color theme">
+        <!-- Sun Icon (shows in light theme) -->
+        <svg id="theme-icon-light" viewBox="0 0 24 24" style="display:none;">
+          <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zm0-11c.56 0 1-.44 1-1V2c0-.56-.44-1-1-1s-1 .44-1 1v1c0 .56.44 1 1 1zm0 16c-.56 0-1 .44-1 1v1c0 .56.44 1 1 1s1-.44 1-1v-1c0-.56-.44-1-1-1zm8.49-13.07c-.39-.39-1.02-.39-1.41 0l-.7.7c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l.7-.7c.39-.38.39-1.02 0-1.41zm-14.85 11.3c.39.39 1.02.39 1.41 0l.7-.7c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l-.7.7c-.39.39-.39 1.02 0 1.41zm14.85.7c-.39-.39-.39-1.02 0-1.41l-.7-.7c-.39-.39-1.02-.39-1.41 0s-.39 1.02 0 1.41l.7.7c.38.39 1.02.39 1.41 0zM5.34 6.63c.39.39.39 1.02 0 1.41l.7.7c.39.39 1.02.39 1.41 0s.39-1.02 0-1.41l-.7-.7c-.39-.39-1.02-.39-1.41 0zM21 11h-1c-.56 0-1 .44-1 1s.44 1 1 1h1c.56 0 1-.44 1-1s-.44-1-1-1zM4 12c0-.56-.44-1-1-1H2c-.56 0-1 .44-1 1s.44 1 1 1h1c.56 0 1-.44 1-1z"/>
+        </svg>
+        <!-- Moon Icon (shows in dark theme) -->
+        <svg id="theme-icon-dark" viewBox="0 0 24 24">
+          <path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.6-.1 1.2.3 1.3.9.1.6-.2 1.2-.8 1.4-3.4 1.1-5.7 4.2-5.7 7.7 0 4.4 3.6 8 8 8 3.5 0 6.6-2.3 7.7-5.7.2-.6.8-.9 1.4-.8.6.1 1 .7.9 1.3-.9 4.7-5 8.2-9.8 8.2z"/>
+        </svg>
+      </button>
+
+      <a href="#quote" class="btn-nav">Get Estimate Brief →</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <!-- Gravitational Canvas Physics Background -->
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+
+    <div class="hero-left">
+      <div class="hero-badge reveal">Creative Media &amp; Content Strategy Agency</div>
+      <h1 class="hero-headline reveal">
+        We elevate brands<br>that <em>defy</em><br>gravity.
+      </h1>
+      <p class="hero-sub reveal">
+        A premium creative media agency. Crafting high-impact video production, photography, social media management, branding &amp; design, and content strategy mainly for Concerts, F&amp;B, Music, Ad Films, Automobile, and Fashion brands.
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#work" class="btn-primary">View Projects</a>
+        <a href="#quote" class="btn-outline">Estimate Project Brief</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual">
+        <span class="hero-text-big">GM</span>
+        <div class="hero-circle"><div class="hero-dot"></div></div>
+        <div class="hero-circle"></div>
+        <div class="hero-circle"></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">140M+</span>
+          <span class="stat-label">Views Triggered</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">7+</span>
+          <span class="stat-label">Years Flying</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">180+</span>
+          <span class="stat-label">Brands Elevated</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFINITE LOOP TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <!-- Set 1 -->
+      <span class="ticker-item">Video Production <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Photography <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Social Media Management <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Branding &amp; Design <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Content Strategy <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Concerts <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">F&amp;B <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Music <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Ad Films <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Automobile <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Fashion <span class="ticker-sep">✦</span></span>
+      <!-- Set 2 — exact duplicate so the loop snaps back seamlessly -->
+      <span class="ticker-item">Video Production <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Photography <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Social Media Management <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Branding &amp; Design <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Content Strategy <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Concerts <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">F&amp;B <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Music <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Ad Films <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Automobile <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Fashion <span class="ticker-sep">✦</span></span>
+    </div>
+  </div>
+
+  <!-- WORK SECTION -->
+  <section id="work">
+    <div class="work-header reveal">
+      <div>
+        <div class="section-label">Selected Projects</div>
+        <h2 class="section-title">Campaigns we've<br><em>taken to new heights.</em></h2>
+      </div>
+      <a href="#quote" class="btn-outline" style="flex-shrink:0;">Start A Project Brief →</a>
+    </div>
+    
+    <div class="work-grid">
+      <!-- Ascent Card -->
+      <div class="work-card reveal" style="transition-delay:0.05s">
+        <div class="card-geo bg-1">
+          <div class="card-shape" style="width:300px;height:300px;border-color:rgba(255,189,89,0.12);top:10%;left:20%"></div>
+          <div class="card-shape" style="width:180px;height:180px;border-color:rgba(255,189,89,0.25);bottom:15%;right:15%"></div>
+        </div>
+        <div class="work-card-overlay">
+          <div class="work-tag">Concert &amp; Music Campaign · 2024</div>
+          <div class="work-title-card">Ascent</div>
+        </div>
+      </div>
+      
+      <!-- Redline Card -->
+      <div class="work-card reveal" style="transition-delay:0.1s">
+        <div class="card-geo bg-2">
+          <div class="card-shape" style="width:200px;height:200px;border-color:rgba(255,100,80,0.2);top:20%;left:30%"></div>
+        </div>
+        <div class="work-card-overlay">
+          <div class="work-tag">Automotive Ad Film · 2024</div>
+          <div class="work-title-card">Redline</div>
+        </div>
+      </div>
+      
+      <!-- Pulse Card -->
+      <div class="work-card reveal" style="transition-delay:0.15s">
+        <div class="card-geo bg-3">
+          <div class="card-shape" style="width:220px;height:220px;border-color:rgba(80,200,120,0.2);top:25%;left:25%"></div>
+        </div>
+        <div class="work-card-overlay">
+          <div class="work-tag">Fashion Lookbook &amp; Video · 2023</div>
+          <div class="work-title-card">Pulse</div>
+        </div>
+      </div>
+      
+      <!-- Solitude Card -->
+      <div class="work-card reveal" style="transition-delay:0.2s">
+        <div class="card-geo bg-4">
+          <div class="card-shape" style="width:280px;height:280px;border-color:rgba(255,189,89,0.15);top:10%;left:35%"></div>
+          <div class="card-shape" style="width:120px;height:120px;border-color:rgba(255,189,89,0.3);bottom:20%;left:10%"></div>
+        </div>
+        <div class="work-card-overlay">
+          <div class="work-tag">F&amp;B Launch Campaign · 2023</div>
+          <div class="work-title-card">Solitude</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="section-label reveal">What We Deliver</div>
+    <div class="services-layout">
+      <div class="reveal">
+        <h2 class="section-title">Everything a brand<br>needs to <em>rise.</em></h2>
+        <p class="services-intro">
+          We don't believe in generic content or repetitive templates. From stunning concert and automotive photography to premium video production, aesthetic social feeds, visual branding, and sharp campaign strategy—we capture the attention your brand deserves.
+        </p>
+      </div>
+      
+      <div class="services-list reveal">
+        <!-- Service 1 -->
+        <div class="service-item" onclick="toggleService(this)">
+          <span class="service-num">01</span>
+          <div class="service-body">
+            <div class="service-name">Video Production</div>
+            <div class="service-desc">Premium promotional videos, high-conversion commercial spots, event reels, concert aftermovies, and highly creative music videos shot in pristine formats.</div>
+          </div>
+          <span class="service-arrow">+</span>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="service-item" onclick="toggleService(this)">
+          <span class="service-num">02</span>
+          <div class="service-body">
+            <div class="service-name">Photography</div>
+            <div class="service-desc">Elite live music captures, aesthetic food &amp; beverage staging, automobile feature campaigns, high-fashion lookbooks, and clean corporate/brand lifestyle portraits.</div>
+          </div>
+          <span class="service-arrow">+</span>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="service-item" onclick="toggleService(this)">
+          <span class="service-num">03</span>
+          <div class="service-body">
+            <div class="service-name">Social Media Management</div>
+            <div class="service-desc">Aesthetically curated feeds, channel growth strategy, platform optimization, community engagement, regular posting schedules, and full performance analysis reports.</div>
+          </div>
+          <span class="service-arrow">+</span>
+        </div>
+        
+        <!-- Service 4 -->
+        <div class="service-item" onclick="toggleService(this)">
+          <span class="service-num">04</span>
+          <div class="service-body">
+            <div class="service-name">Branding &amp; Design</div>
+            <div class="service-desc">Complete visual identities, distinctive logos, corporate typography, creative event styling, marketing assets, and cohesive brand design guides.</div>
+          </div>
+          <span class="service-arrow">+</span>
+        </div>
+        
+        <!-- Service 5 -->
+        <div class="service-item" onclick="toggleService(this)">
+          <span class="service-num">05</span>
+          <div class="service-body">
+            <div class="service-name">Content Strategy</div>
+            <div class="service-desc">Comprehensive story blueprints, message modeling, campaign conceptualization, structural content calendars, and targeted audience communication strategies.</div>
+          </div>
+          <span class="service-arrow">+</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SLIDER SECTION -->
+  <section id="testimonials">
+    <div class="section-label reveal">Client Reviews</div>
+    <div class="testimonials-slider reveal">
+      
+      <!-- Slide 1 -->
+      <div class="testimonial-slide active">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Gigman Media completely redefined what a brand film could be. 'Ascent' isn't just a video—it's a cinematic masterpiece that drove our user engagement up by 400%."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">ER</div>
+          <div class="testi-info">
+            <h5>Elena Rostova</h5>
+            <p>Head of Brand at Orbit Group</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="testimonial-slide">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The robotic tracking work on the 'Redline' spot was flawless. They captured motion and speed in a way that feels organic yet impossibly premium. Elite professionals."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JC</div>
+          <div class="testi-info">
+            <h5>John Cole</h5>
+            <p>Director of Marketing, Apex Automotive</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="testimonial-slide">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Their sound design and scoring capabilities are in a league of their own. 'Pulse' feels alive on screen. The depth of spatial audio they delivered blew our expectations."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">CV</div>
+          <div class="testi-info">
+            <h5>Chloe Vance</h5>
+            <p>Creative Producer, SoundSync Records</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Pagination Dots Navigation -->
+      <div class="testimonials-nav"></div>
+
+    </div>
+  </section>
+
+  <!-- CASE STUDY DETAILS FULL-SHEET DRAWER -->
+  <div class="case-sheet-overlay" id="case-sheet-overlay"></div>
+  <div class="case-sheet" id="case-sheet">
+    <div class="case-sheet-header">
+      <h3 class="case-sheet-title" id="case-title">Project Title</h3>
+      <button class="case-close" id="case-close" aria-label="Close Case details">✕</button>
+    </div>
+    <div class="case-sheet-content">
+      <div class="case-meta-grid">
+        <div class="case-meta-item">
+          <label>Campaign / Project</label>
+          <span id="case-tag">Project Tag</span>
+        </div>
+        <div class="case-meta-item">
+          <label>Aspect Ratio / Form</label>
+          <span>Cinematic Anamorphic</span>
+        </div>
+      </div>
+      <div id="case-color-block" class="case-hero-img" style="height:200px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; border: 1px solid var(--surface-border); border-radius:4px; margin-bottom:2.5rem;">
+        <div class="card-shape" style="width:250px;height:250px;border-color:rgba(255,189,89,0.12);top:10%;left:15%"></div>
+        <div class="card-shape" style="width:120px;height:120px;border-color:rgba(255,189,89,0.25);bottom:10%;right:10%"></div>
+      </div>
+      
+      <p class="case-body-text" id="case-desc">
+        Detailed case study information goes here...
+      </p>
+
+      <div class="case-specs">
+        <h4>Production Specifications</h4>
+        <ul class="case-specs-list" id="case-specs-list">
+          <!-- Populated dynamically via JS -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTION ESTIMATOR SECTION -->
+  <section id="quote">
+    <div class="quote-layout">
+      <div class="quote-left reveal">
+        <div class="section-label">Let's Work Together</div>
+        <h2 class="section-title">Ready to<br>defy <em>gravity?</em></h2>
+        <p class="quote-blurb">
+          Construct your project brief below. Toggle the required creative services, set your budget scope and project duration, and our media estimator will generate a direct investment projection instantly.
+        </p>
+      </div>
+
+      <div class="quote-form-container reveal">
+        <div class="estimator-title">Campaign Estimator &amp; Brief Builder</div>
+        
+        <!-- Step 1: Services Selection -->
+        <div class="estimator-step">
+          <span class="estimator-step-label">Step 1: Choose Services</span>
+          <div class="service-cards">
+            <div class="service-card-opt selected">
+              <div class="service-card-title">Video Production</div>
+              <div class="service-card-desc">Promotional videos, reels, ads, aftermovies.</div>
+            </div>
+            <div class="service-card-opt selected">
+              <div class="service-card-title">Photography</div>
+              <div class="service-card-desc">Concerts, F&amp;B, fashion, automobile, lifestyle.</div>
+            </div>
+            <div class="service-card-opt">
+              <div class="service-card-title">Social Media</div>
+              <div class="service-card-desc">Aesthetic curation, posting, channel strategy.</div>
+            </div>
+            <div class="service-card-opt">
+              <div class="service-card-title">Branding &amp; Design</div>
+              <div class="service-card-desc">Logos, visual identity, event styling templates.</div>
+            </div>
+            <div class="service-card-opt">
+              <div class="service-card-title">Content Strategy</div>
+              <div class="service-card-desc">Campaign blueprints, messaging frameworks.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Sliders for Budget & Duration -->
+        <div class="estimator-step">
+          <span class="estimator-step-label">Step 2: Define Budget &amp; Campaign Duration</span>
+          
+          <div class="range-slider-container" style="margin-bottom: 2rem;">
+            <div class="range-values">
+              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">Estimated Base Scale</span>
+              <span id="budget-value" style="color: var(--gold);">₹15L</span>
+            </div>
+            <input type="range" class="range-slider" id="budget-slider" min="5" max="50" value="15">
+          </div>
+
+          <div class="range-slider-container">
+            <div class="range-values">
+              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">Campaign Shooting/Project Days</span>
+              <span id="duration-value" style="color: var(--gold);">4 Days</span>
+            </div>
+            <input type="range" class="range-slider" id="duration-slider" min="1" max="15" value="4">
+          </div>
+        </div>
+
+        <!-- Step 3: Contact Inputs -->
+        <div class="estimator-step">
+          <span class="estimator-step-label">Step 3: Contact &amp; Brief Summary</span>
+          
+          <div class="inputs-row">
+            <div class="form-field-upgrade">
+              <label>Your Name</label>
+              <input type="text" placeholder="Aravind Nair" required>
+            </div>
+            <div class="form-field-upgrade">
+              <label>Company / Brand Name</label>
+              <input type="text" placeholder="Acme Lifestyle Corp.">
+            </div>
+          </div>
+
+          <div class="inputs-row">
+            <div class="form-field-upgrade">
+              <label>Email Address</label>
+              <input type="email" placeholder="marketing@acme.com" required>
+            </div>
+            <div class="form-field-upgrade">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91 98765 43210">
+            </div>
+          </div>
+
+          <div class="form-field-upgrade" style="margin-bottom: 2rem;">
+            <label>Specific Campaign Details / Targeted Industry</label>
+            <textarea rows="3" placeholder="Tell us about the concert, café, automobile launch, or fashion aesthetic you want us to elevate..."></textarea>
+          </div>
+        </div>
+
+        <!-- Real-time Cost Estimation Summary Box -->
+        <div class="estimator-summary">
+          <div class="summary-row">
+            <span>Selected Services</span>
+            <span id="sum-services">2 Selected</span>
+          </div>
+          <div class="summary-row">
+            <span>Strategy &amp; Creative Direction (15%)</span>
+            <span id="sum-prep">₹2.3L</span>
+          </div>
+          <div class="summary-row">
+            <span>Production &amp; Content Creation (55%)</span>
+            <span id="sum-shoot">₹8.3L</span>
+          </div>
+          <div class="summary-row">
+            <span>Post &amp; Digital Distribution (30%)</span>
+            <span id="sum-post">₹4.5L</span>
+          </div>
+          <div class="summary-row total">
+            <span>Estimated Agency Investment</span>
+            <span id="sum-total">₹15.1L</span>
+          </div>
+        </div>
+
+        <button class="btn-submit" type="button">
+          Submit Campaign Brief <span class="arrow">→</span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo-link" aria-label="Gigman Media Logo">
+      <img src="assets/YellowMono.png" class="footer-logo-img logo-light" alt="Gigman Media Logo">
+      <img src="assets/BlackMono.png" class="footer-logo-img logo-dark" alt="Gigman Media Logo">
+    </a>
+    <ul class="footer-links">
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#quote">Estimate Brief</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Gigman Media. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

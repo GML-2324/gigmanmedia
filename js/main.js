@@ -661,6 +661,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 11. Start Hero Rotators
   initHeroRotators();
+
+  // 12. Clean anchor scroll — prevent hash from appearing in URL
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const hash = link.getAttribute('href');
+    if (!hash || hash === '#') return;
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Keep URL clean — no hash appended
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  });
 });
 
 // --- Hero Word Rotators ---

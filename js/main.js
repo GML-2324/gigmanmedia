@@ -390,66 +390,131 @@ function initCaseStudies() {
   });
 }
 
-// --- Interactive Production Estimator Logic ---
-function initProductionEstimator() {
-  const options = document.querySelectorAll('.service-card-opt');
-  const budgetInput = document.getElementById('budget-slider');
-  const durationInput = document.getElementById('duration-slider');
-  
-  if (!options.length || !budgetInput) return;
+// --- Campaign Brief Submit Handler ---
+// Uses Web3Forms (web3forms.com) to send emails silently without opening the user's email client.
+// ⚠️  ACTION REQUIRED: Go to https://web3forms.com, enter connect@gigmanmedia.com, and paste your
+//     Access Key below to replace 'YOUR_WEB3FORMS_ACCESS_KEY'.
+const WEB3FORMS_ACCESS_KEY = '6abb86c9-d562-42df-baaa-c68fb71425c6';
 
-  // Service options click
-  options.forEach(opt => {
+function initCampaignBriefSubmit() {
+  const submitBtn = document.getElementById('brief-submit-btn');
+  if (!submitBtn) return;
+
+  // Service card toggle
+  document.querySelectorAll('.service-card-opt').forEach(opt => {
     opt.addEventListener('click', () => {
       opt.classList.toggle('selected');
-      updateEstimates();
       playHapticFeedback(750, 0.03, 'sine', 0.02);
     });
   });
 
-  // Sliders change event
-  budgetInput.addEventListener('input', () => {
-    document.getElementById('budget-value').innerText = `₹${budgetInput.value}L`;
-    updateEstimates();
-  });
-  
-  durationInput.addEventListener('input', () => {
-    document.getElementById('duration-value').innerText = `${durationInput.value} Days`;
-    updateEstimates();
-  });
+  submitBtn.addEventListener('click', async () => {
+    // --- Collect & Validate ---
+    const name    = document.getElementById('brief-name').value.trim();
+    const company = document.getElementById('brief-company').value.trim();
+    const email   = document.getElementById('brief-email').value.trim();
+    const phone   = document.getElementById('brief-phone').value.trim();
+    const details = document.getElementById('brief-details').value.trim();
 
-  function updateEstimates() {
-    const selectedCount = document.querySelectorAll('.service-card-opt.selected').length;
-    const baseBudget = parseInt(budgetInput.value); // In Lakhs
-    const shootingDays = parseInt(durationInput.value);
-    
-    // Estimate multiplier logic
-    let totalEstimate = baseBudget;
-    if (selectedCount > 0) {
-      totalEstimate = baseBudget + (selectedCount - 1) * (baseBudget * 0.15);
+    const selectedServices = [...document.querySelectorAll('.service-card-opt.selected')]
+      .map(el => el.dataset.service || el.querySelector('.service-card-title')?.innerText || '');
+
+    // Validate mandatory fields
+    if (!name || !company || !email || !phone || !details) {
+      ['brief-name','brief-company','brief-email','brief-phone','brief-details'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && !el.value.trim()) {
+          el.style.borderColor = '#ff6b6b';
+          el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
+        }
+      });
+      playHapticFeedback(200, 0.12, 'square', 0.04);
+      return;
     }
-    
-    // Shoot duration additional grip cost factor
-    totalEstimate += (shootingDays * 0.08); // ₹8k per day extra
-    
-    // Round to 1 decimal place
-    totalEstimate = Math.round(totalEstimate * 10) / 10;
-    
-    // Percentage split calculations
-    const prepCost = Math.round(totalEstimate * 0.15 * 10) / 10;
-    const shootCost = Math.round(totalEstimate * 0.55 * 10) / 10;
-    const postCost = Math.round((totalEstimate - prepCost - shootCost) * 10) / 10;
 
-    // Dom updates
-    document.getElementById('sum-services').innerText = `${selectedCount} Selected`;
-    document.getElementById('sum-prep').innerText = `₹${prepCost}L`;
-    document.getElementById('sum-shoot').innerText = `₹${shootCost}L`;
-    document.getElementById('sum-post').innerText = `₹${postCost}L`;
-    document.getElementById('sum-total').innerText = `₹${totalEstimate}L`;
-  }
-  
-  // Trigger initial calculation
-  updateEstimates();
+    const servicesLine = selectedServices.length > 0
+      ? selectedServices.join(', ')
+      : 'No specific services selected';
+
+    const now = new Date().toLocaleString('en-IN', {
+      day: '2-digit', month: 'long', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+
+    // --- Loading State ---
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span style="opacity:0.7;">Sending…</span>';
+
+    // Build a clean plain-text message — Web3Forms displays this in their own template
+    const plainMessage = [
+      `Submitted On: ${now}`,
+      '',
+      '--- CONTACT DETAILS ---',
+      `Name:          ${name}`,
+      `Company/Brand: ${company}`,
+      `Email:         ${email}`,
+      `Phone:         ${phone}`,
+      '',
+      '--- SERVICES REQUIRED ---',
+      servicesLine,
+      '',
+      '--- CAMPAIGN DETAILS ---',
+      details,
+    ].join('\n');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject:    `Campaign Brief — ${company} | Gigman Media`,
+          from_name:  name,
+          replyto:    email,
+          message:    plainMessage,
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Success state
+        playHapticFeedback(900, 0.08, 'sine', 0.04);
+        submitBtn.innerHTML = '✓ Brief Sent Successfully!';
+        submitBtn.style.background = '#2a7a4b';
+        submitBtn.style.cursor = 'default';
+
+        // Clear the form
+        ['brief-name','brief-company','brief-email','brief-phone','brief-details'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.value = '';
+        });
+        document.querySelectorAll('.service-card-opt.selected').forEach(el => el.classList.remove('selected'));
+
+        setTimeout(() => {
+          submitBtn.innerHTML = 'Send Enquiry <span class="arrow">→</span>';
+          submitBtn.style.background = '';
+          submitBtn.style.cursor = '';
+          submitBtn.disabled = false;
+        }, 5000);
+
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+
+    } catch (err) {
+      // Error state
+      playHapticFeedback(200, 0.12, 'square', 0.04);
+      submitBtn.innerHTML = '✕ Failed — Please Try Again';
+      submitBtn.style.background = '#a83232';
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Send Enquiry <span class="arrow">→</span>';
+        submitBtn.style.background = '';
+        submitBtn.disabled = false;
+      }, 4000);
+      console.error('Brief submission error:', err);
+    }
+  });
 }
 
 // --- Live Testimonials Carousel Slider ---
@@ -588,8 +653,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 8. Initialize popup details case sheet
   initCaseStudies();
 
-  // 9. Initialize dynamic calculations estimator
-  initProductionEstimator();
+  // 9. Initialize campaign brief submit handler
+  initCampaignBriefSubmit();
 
   // 10. Start reviews sliders
   initTestimonialsCarousel();

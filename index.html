@@ -336,126 +336,76 @@
     </div>
   </div>
 
-  <!-- PRODUCTION ESTIMATOR SECTION -->
+  <!-- CAMPAIGN BRIEF SECTION -->
   <section id="quote">
     <div class="quote-layout">
       <div class="quote-left reveal">
         <div class="section-label">Let's Work Together</div>
         <h2 class="section-title">Ready to<br>defy <em>gravity?</em></h2>
         <p class="quote-blurb">
-          Construct your project brief below. Toggle the required creative services, set your budget scope and project duration, and our media estimator will generate a direct investment projection instantly.
+          Select the creative services you need, fill in your details, and send us your brief. We'll get back to you within 24 hours.
         </p>
       </div>
 
       <div class="quote-form-container reveal">
-        <div class="estimator-title">Campaign Estimator &amp; Brief Builder</div>
-        
+        <div class="estimator-title">Campaign Brief Builder</div>
+
         <!-- Step 1: Services Selection -->
         <div class="estimator-step">
           <span class="estimator-step-label">Step 1: Choose Services</span>
           <div class="service-cards">
-            <div class="service-card-opt selected">
+            <div class="service-card-opt" data-service="Video Production">
               <div class="service-card-title">Video Production</div>
-              <div class="service-card-desc">Promotional videos, reels, ads, aftermovies.</div>
             </div>
-            <div class="service-card-opt selected">
+            <div class="service-card-opt" data-service="Photography">
               <div class="service-card-title">Photography</div>
-              <div class="service-card-desc">Concerts, F&amp;B, fashion, automobile, lifestyle.</div>
             </div>
-            <div class="service-card-opt">
+            <div class="service-card-opt" data-service="Social Media Management">
               <div class="service-card-title">Social Media</div>
-              <div class="service-card-desc">Aesthetic curation, posting, channel strategy.</div>
             </div>
-            <div class="service-card-opt">
+            <div class="service-card-opt" data-service="Branding &amp; Design">
               <div class="service-card-title">Branding &amp; Design</div>
-              <div class="service-card-desc">Logos, visual identity, event styling templates.</div>
             </div>
-            <div class="service-card-opt">
+            <div class="service-card-opt" data-service="Content Strategy">
               <div class="service-card-title">Content Strategy</div>
-              <div class="service-card-desc">Campaign blueprints, messaging frameworks.</div>
             </div>
           </div>
         </div>
 
-        <!-- Step 2: Sliders for Budget & Duration -->
+        <!-- Step 2: Contact Details -->
         <div class="estimator-step">
-          <span class="estimator-step-label">Step 2: Define Budget &amp; Campaign Duration</span>
-          
-          <div class="range-slider-container" style="margin-bottom: 2rem;">
-            <div class="range-values">
-              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">Estimated Base Scale</span>
-              <span id="budget-value" style="color: var(--gold);">₹15L</span>
-            </div>
-            <input type="range" class="range-slider" id="budget-slider" min="5" max="50" value="15">
-          </div>
+          <span class="estimator-step-label">Step 2: Your Contact Details</span>
 
-          <div class="range-slider-container">
-            <div class="range-values">
-              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">Campaign Shooting/Project Days</span>
-              <span id="duration-value" style="color: var(--gold);">4 Days</span>
-            </div>
-            <input type="range" class="range-slider" id="duration-slider" min="1" max="15" value="4">
-          </div>
-        </div>
-
-        <!-- Step 3: Contact Inputs -->
-        <div class="estimator-step">
-          <span class="estimator-step-label">Step 3: Contact &amp; Brief Summary</span>
-          
           <div class="inputs-row">
             <div class="form-field-upgrade">
-              <label>Your Name</label>
-              <input type="text" placeholder="Aravind Nair" required>
+              <label>Your Name <span class="req">*</span></label>
+              <input type="text" id="brief-name" placeholder="Aravind Nair" required>
             </div>
             <div class="form-field-upgrade">
-              <label>Company / Brand Name</label>
-              <input type="text" placeholder="Acme Lifestyle Corp.">
+              <label>Company / Brand Name <span class="req">*</span></label>
+              <input type="text" id="brief-company" placeholder="Acme Lifestyle Corp." required>
             </div>
           </div>
 
           <div class="inputs-row">
             <div class="form-field-upgrade">
-              <label>Email Address</label>
-              <input type="email" placeholder="marketing@acme.com" required>
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" id="brief-email" placeholder="marketing@acme.com" required>
             </div>
             <div class="form-field-upgrade">
-              <label>Phone Number</label>
-              <input type="tel" placeholder="+91 98765 43210">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" id="brief-phone" placeholder="+91 98765 43210" required>
             </div>
           </div>
 
           <div class="form-field-upgrade" style="margin-bottom: 2rem;">
-            <label>Specific Campaign Details / Targeted Industry</label>
-            <textarea rows="3" placeholder="Tell us about the concert, café, automobile launch, or fashion aesthetic you want us to elevate..."></textarea>
+            <label>Campaign Details / Targeted Industry <span class="req">*</span></label>
+            <textarea id="brief-details" rows="4" placeholder="Tell us about the concert, café, automobile launch, or fashion aesthetic you want us to elevate..." required></textarea>
           </div>
         </div>
 
-        <!-- Real-time Cost Estimation Summary Box -->
-        <div class="estimator-summary">
-          <div class="summary-row">
-            <span>Selected Services</span>
-            <span id="sum-services">2 Selected</span>
-          </div>
-          <div class="summary-row">
-            <span>Strategy &amp; Creative Direction (15%)</span>
-            <span id="sum-prep">₹2.3L</span>
-          </div>
-          <div class="summary-row">
-            <span>Production &amp; Content Creation (55%)</span>
-            <span id="sum-shoot">₹8.3L</span>
-          </div>
-          <div class="summary-row">
-            <span>Post &amp; Digital Distribution (30%)</span>
-            <span id="sum-post">₹4.5L</span>
-          </div>
-          <div class="summary-row total">
-            <span>Estimated Agency Investment</span>
-            <span id="sum-total">₹15.1L</span>
-          </div>
-        </div>
-
-        <button class="btn-submit" type="button">
-          Submit Campaign Brief <span class="arrow">→</span>
+        <button class="btn-submit" type="button" id="brief-submit-btn">
+          Send Enquiry <span class="arrow">→</span>
         </button>
 
       </div>

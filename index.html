@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gigman Media — Premium Creative Media Agency</title>
   <meta name="description" content="Gigman Media is a premium creative media agency. High-impact video production, photography, social media management, branding & design, and content strategy.">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=2">
 </head>
 <body>
 
@@ -20,9 +20,9 @@
       <img src="assets/BlackMono.png" class="nav-logo-img logo-dark" alt="Gigman Media Logo">
     </a>
     <ul class="nav-links">
-      <li><a href="#work">Projects</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
+      <!-- <li><a href="#work">Projects</a></li> -->
+      <!-- <li><a href="#services">Services</a></li> -->
+      <!-- <li><a href="#testimonials">Reviews</a></li> -->
     </ul>
     
     <div class="nav-controls">
@@ -50,47 +50,44 @@
         </svg>
       </button>
 
-      <a href="#quote" class="btn-nav">Get Estimate Brief →</a>
+      <a href="#quote" class="btn-nav">Level Up Your Brand →</a>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <!-- Gravitational Canvas Physics Background -->
+  <!-- HERO SECTION (NowMedia Inspired) -->
+  <section class="hero hero--centered">
+    <!-- Keep the Gravitational Canvas Background -->
     <canvas id="hero-canvas" class="hero-canvas"></canvas>
+    <div class="hero-overlay"></div>
 
-    <div class="hero-left">
-      <div class="hero-badge reveal">Creative Media &amp; Content Strategy Agency</div>
+    <div class="hero-inner">
+      <div class="hero-badge reveal">Bold · Creative · Results-Driven</div>
+      
       <h1 class="hero-headline reveal">
-        We elevate brands<br>that <em>defy</em><br>gravity.
+        <span class="hero-line hero-line--static">We don't just</span>
+        <span class="hero-line hero-line--rotator">
+          <span class="word-rotator" id="word-rotator">
+            <span class="rotator-text" id="rotator-text"></span><span class="rotator-caret" aria-hidden="true"></span>
+          </span>
+        </span>
+        <span class="hero-line hero-line--white">We build brands.</span>
       </h1>
+      
       <p class="hero-sub reveal">
-        A premium creative media agency. Crafting high-impact video production, photography, social media management, branding &amp; design, and content strategy mainly for Concerts, F&amp;B, Music, Ad Films, Automobile, and Fashion brands.
+        You bring the story. We'll make sure it's <strong>scroll-stopping.</strong> From cinematic video production to aesthetic photography, social media management, and bold branding — all under one roof.
       </p>
+      
       <div class="hero-cta reveal">
-        <a href="#work" class="btn-primary">View Projects</a>
-        <a href="#quote" class="btn-outline">Estimate Project Brief</a>
+        <a href="#quote" class="btn-primary btn-large">Level Up Your Brand →</a>
+        <span class="hero-cta-meta" style="margin-top: 1rem; display: block;">
+          <span class="hero-cta-star">⚡</span> No fluff · No lock-ins · Just scroll-stopping results
+        </span>
       </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-visual">
-        <span class="hero-text-big">GM</span>
-        <div class="hero-circle"><div class="hero-dot"></div></div>
-        <div class="hero-circle"></div>
-        <div class="hero-circle"></div>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">140M+</span>
-          <span class="stat-label">Views Triggered</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">7+</span>
-          <span class="stat-label">Years Flying</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">180+</span>
-          <span class="stat-label">Brands Elevated</span>
+
+      <div class="hero-industries reveal" style="margin-top: 2rem;">
+        <span class="industry-caption">We work across</span>
+        <div class="industry-rotator" id="industry-rotator">
+          <em class="industry-word is-active">Concerts</em>
         </div>
       </div>
     </div>
@@ -100,34 +97,32 @@
   <div class="ticker">
     <div class="ticker-track">
       <!-- Set 1 -->
-      <span class="ticker-item">Video Production <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Photography <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Social Media Management <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Branding &amp; Design <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Content Strategy <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Concerts <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">F&amp;B <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Music <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Ad Films <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Automobile <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Fashion <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Video Production <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Photography <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Social Media Management <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Branding &amp; Design <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Content Strategy <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Brand Films &amp; Reels <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Event Coverage <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Ad &amp; Campaign Videos <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Lifestyle &amp; Product Shoots <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Scroll-Stopping Content <span class="ticker-sep">⚡</span></span>
       <!-- Set 2 — exact duplicate so the loop snaps back seamlessly -->
-      <span class="ticker-item">Video Production <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Photography <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Social Media Management <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Branding &amp; Design <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Content Strategy <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Concerts <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">F&amp;B <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Music <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Ad Films <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Automobile <span class="ticker-sep">✦</span></span>
-      <span class="ticker-item">Fashion <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Video Production <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Photography <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Social Media Management <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Branding &amp; Design <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Content Strategy <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Brand Films &amp; Reels <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Event Coverage <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Ad &amp; Campaign Videos <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Lifestyle &amp; Product Shoots <span class="ticker-sep">⚡</span></span>
+      <span class="ticker-item">Scroll-Stopping Content <span class="ticker-sep">⚡</span></span>
     </div>
   </div>
 
   <!-- WORK SECTION -->
-  <section id="work">
+  <section id="work" style="display: none;">
     <div class="work-header reveal">
       <div>
         <div class="section-label">Selected Projects</div>
@@ -187,12 +182,12 @@
 
   <!-- SERVICES SECTION -->
   <section id="services">
-    <div class="section-label reveal">What We Deliver</div>
+    <div class="section-label reveal">What We Do</div>
     <div class="services-layout">
       <div class="reveal">
-        <h2 class="section-title">Everything a brand<br>needs to <em>rise.</em></h2>
+        <h2 class="section-title">We don't just<br>create content.<br><em>We build brands.</em></h2>
         <p class="services-intro">
-          We don't believe in generic content or repetitive templates. From stunning concert and automotive photography to premium video production, aesthetic social feeds, visual branding, and sharp campaign strategy—we capture the attention your brand deserves.
+          No templates. No generic posts. No one-size-fits-all. We craft content that stops the scroll, builds your presence, and drives real results — across every platform, every format, every time.
         </p>
       </div>
       
@@ -202,7 +197,7 @@
           <span class="service-num">01</span>
           <div class="service-body">
             <div class="service-name">Video Production</div>
-            <div class="service-desc">Premium promotional videos, high-conversion commercial spots, event reels, concert aftermovies, and highly creative music videos shot in pristine formats.</div>
+            <div class="service-desc">Cinematic content that stops the scroll and drives action. Brand films &amp; reels, ad &amp; campaign videos, and full event coverage — shot and edited to perfection.</div>
           </div>
           <span class="service-arrow">+</span>
         </div>
@@ -212,7 +207,7 @@
           <span class="service-num">02</span>
           <div class="service-body">
             <div class="service-name">Photography</div>
-            <div class="service-desc">Elite live music captures, aesthetic food &amp; beverage staging, automobile feature campaigns, high-fashion lookbooks, and clean corporate/brand lifestyle portraits.</div>
+            <div class="service-desc">Stunning visuals that tell your story without a word. Product &amp; commercial shoots, brand &amp; lifestyle sessions, events &amp; portraits — every frame built to convert.</div>
           </div>
           <span class="service-arrow">+</span>
         </div>
@@ -222,7 +217,7 @@
           <span class="service-num">03</span>
           <div class="service-body">
             <div class="service-name">Social Media Management</div>
-            <div class="service-desc">Aesthetically curated feeds, channel growth strategy, platform optimization, community engagement, regular posting schedules, and full performance analysis reports.</div>
+            <div class="service-desc">We run your pages so you can run your business. Curated feeds, growth strategy, community engagement, consistent posting, and monthly performance reports.</div>
           </div>
           <span class="service-arrow">+</span>
         </div>
@@ -232,7 +227,7 @@
           <span class="service-num">04</span>
           <div class="service-body">
             <div class="service-name">Branding &amp; Design</div>
-            <div class="service-desc">Complete visual identities, distinctive logos, corporate typography, creative event styling, marketing assets, and cohesive brand design guides.</div>
+            <div class="service-desc">Your identity, sharpened. Logo design, visual systems, brand guidelines, marketing collateral, and everything that makes your brand instantly recognisable.</div>
           </div>
           <span class="service-arrow">+</span>
         </div>
@@ -242,7 +237,7 @@
           <span class="service-num">05</span>
           <div class="service-body">
             <div class="service-name">Content Strategy</div>
-            <div class="service-desc">Comprehensive story blueprints, message modeling, campaign conceptualization, structural content calendars, and targeted audience communication strategies.</div>
+            <div class="service-desc">A clear plan, not just posts. Story blueprints, campaign concepts, content calendars, and audience-first messaging that turns followers into customers.</div>
           </div>
           <span class="service-arrow">+</span>
         </div>
@@ -251,7 +246,7 @@
   </section>
 
   <!-- TESTIMONIALS SLIDER SECTION -->
-  <section id="testimonials">
+  <section id="testimonials" style="display: none;">
     <div class="section-label reveal">Client Reviews</div>
     <div class="testimonials-slider reveal">
       
@@ -341,18 +336,18 @@
     <div class="quote-layout">
       <div class="quote-left reveal">
         <div class="section-label">Let's Work Together</div>
-        <h2 class="section-title">Ready to<br>defy <em>gravity?</em></h2>
+        <h2 class="section-title">Ready to<br>Level Up your <em>Brand?</em></h2>
         <p class="quote-blurb">
-          Select the creative services you need, fill in your details, and send us your brief. We'll get back to you within 24 hours.
+          You bring the story. We'll make sure it's scroll-stopping. Pick your services, fill in your details — we'll get back within 24 hours.
         </p>
       </div>
 
       <div class="quote-form-container reveal">
-        <div class="estimator-title">Campaign Brief Builder</div>
+        <div class="estimator-title">Tell Us About Your Brand</div>
 
         <!-- Step 1: Services Selection -->
         <div class="estimator-step">
-          <span class="estimator-step-label">Step 1: Choose Services</span>
+          <span class="estimator-step-label">Step 1: What do you need?</span>
           <div class="service-cards">
             <div class="service-card-opt" data-service="Video Production">
               <div class="service-card-title">Video Production</div>
@@ -374,23 +369,23 @@
 
         <!-- Step 2: Contact Details -->
         <div class="estimator-step">
-          <span class="estimator-step-label">Step 2: Your Contact Details</span>
+          <span class="estimator-step-label">Step 2: Your Details</span>
 
           <div class="inputs-row">
             <div class="form-field-upgrade">
               <label>Your Name <span class="req">*</span></label>
-              <input type="text" id="brief-name" placeholder="Aravind Nair" required>
+              <input type="text" id="brief-name" placeholder="Rahul Sharma" required>
             </div>
             <div class="form-field-upgrade">
-              <label>Company / Brand Name <span class="req">*</span></label>
-              <input type="text" id="brief-company" placeholder="Acme Lifestyle Corp." required>
+              <label>Brand Name <span class="req">*</span></label>
+              <input type="text" id="brief-company" placeholder="Your Brand Co." required>
             </div>
           </div>
 
           <div class="inputs-row">
             <div class="form-field-upgrade">
               <label>Email Address <span class="req">*</span></label>
-              <input type="email" id="brief-email" placeholder="marketing@acme.com" required>
+              <input type="email" id="brief-email" placeholder="hello@yourbrand.com" required>
             </div>
             <div class="form-field-upgrade">
               <label>Phone Number <span class="req">*</span></label>
@@ -399,13 +394,13 @@
           </div>
 
           <div class="form-field-upgrade" style="margin-bottom: 2rem;">
-            <label>Campaign Details / Targeted Industry <span class="req">*</span></label>
-            <textarea id="brief-details" rows="4" placeholder="Tell us about the concert, café, automobile launch, or fashion aesthetic you want us to elevate..." required></textarea>
+            <label>Tell us about your brand &amp; goals <span class="req">*</span></label>
+            <textarea id="brief-details" rows="4" placeholder="What's your brand about? What do you want to achieve? Any upcoming campaigns or launches?" required></textarea>
           </div>
         </div>
 
         <button class="btn-submit" type="button" id="brief-submit-btn">
-          Send Enquiry <span class="arrow">→</span>
+          Let's Get Started <span class="arrow">→</span>
         </button>
 
       </div>
@@ -418,14 +413,25 @@
       <img src="assets/YellowMono.png" class="footer-logo-img logo-light" alt="Gigman Media Logo">
       <img src="assets/BlackMono.png" class="footer-logo-img logo-dark" alt="Gigman Media Logo">
     </a>
-    <ul class="footer-links">
-      <li><a href="#work">Projects</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#quote">Estimate Brief</a></li>
-    </ul>
+
+    <div class="footer-contact">
+      <a href="https://instagram.com/gigmanmedia" target="_blank" rel="noopener" class="footer-contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @gigmanmedia
+      </a>
+      <a href="mailto:connect@gigmanmedia.com" class="footer-contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        connect@gigmanmedia.com
+      </a>
+      <a href="tel:+919620288177" class="footer-contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        +91 96202 88177
+      </a>
+    </div>
+
     <p class="footer-copy">© 2026 Gigman Media. All rights reserved.</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>

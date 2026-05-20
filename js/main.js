@@ -184,8 +184,8 @@ class GravitationalCanvas {
 
   resize() {
     const rect = this.canvas.parentElement.getBoundingClientRect();
-    this.canvas.width = rect.width;
-    this.canvas.height = rect.height;
+    this.canvas.width  = rect.width  || window.innerWidth;
+    this.canvas.height = rect.height || window.innerHeight;
   }
 
   updateColors() {
@@ -658,4 +658,91 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 10. Start reviews sliders
   initTestimonialsCarousel();
+
+  // 11. Start Hero Rotators
+  initHeroRotators();
 });
+
+// --- Hero Word Rotators ---
+function initHeroRotators() {
+  const rotatorTextEl = document.getElementById('rotator-text');
+  const industryRotator = document.getElementById('industry-rotator');
+
+  // ── Typewriter Engine ──
+  if (rotatorTextEl) {
+    const words = [
+      'create content.',
+      'shoot videos.',
+      'snap photos.',
+      'run your pages.',
+      'design brands.',
+      'build content.'
+    ];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    const TYPE_SPEED   = 85;   // ms per character typed
+    const DELETE_SPEED = 45;   // ms per character deleted
+    const HOLD_TIME    = 1800; // ms to hold the completed word
+    const PAUSE_TIME   = 400;  // ms pause before typing next word
+
+    function tick() {
+      const currentWord = words[wordIndex];
+
+      if (!isDeleting) {
+        // Typing forward
+        charIndex++;
+        rotatorTextEl.textContent = currentWord.slice(0, charIndex);
+
+        if (charIndex === currentWord.length) {
+          // Word complete — hold then start deleting
+          isDeleting = true;
+          setTimeout(tick, HOLD_TIME);
+          return;
+        }
+        setTimeout(tick, TYPE_SPEED + Math.random() * 30); // slight jitter = natural feel
+      } else {
+        // Deleting backward
+        charIndex--;
+        rotatorTextEl.textContent = currentWord.slice(0, charIndex);
+
+        if (charIndex === 0) {
+          // Word erased — move to next word
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(tick, PAUSE_TIME);
+          return;
+        }
+        setTimeout(tick, DELETE_SPEED);
+      }
+    }
+
+    // Start immediately
+    rotatorTextEl.textContent = '';
+    tick();
+  }
+
+  // ── Industry Rotator (slide-up) ──
+  if (industryRotator) {
+    const indWords = ['Concerts', 'Automobile', 'F&B', 'Fashion', 'Art', 'Music'];
+    let iIdx = 0;
+    setInterval(() => {
+      const oldWord = industryRotator.querySelector('.is-active');
+      if (oldWord) {
+        oldWord.classList.remove('is-active');
+        oldWord.classList.add('is-exiting');
+        setTimeout(() => oldWord.remove(), 400);
+      }
+
+      iIdx = (iIdx + 1) % indWords.length;
+      const newWord = document.createElement('em');
+      newWord.className = 'industry-word';
+      newWord.innerText = indWords[iIdx];
+      industryRotator.appendChild(newWord);
+
+      void newWord.offsetWidth;
+      newWord.classList.add('is-active');
+    }, 3000);
+  }
+}

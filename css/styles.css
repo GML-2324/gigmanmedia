@@ -1173,12 +1173,14 @@ footer {
 /* Typewriter blinking cursor */
 .rotator-caret {
   display: inline-block;
-  width: 2px;
+  width: 2.5px;
   height: 0.85em;
   background: var(--gold);
   animation: tw-blink 0.75s step-end infinite;
-  vertical-align: text-bottom;
-  margin-left: 2px;
+  vertical-align: middle;
+  margin-left: 3px;
+  position: relative;
+  top: -0.05em;
   border-radius: 1px;
 }
 @keyframes tw-blink {

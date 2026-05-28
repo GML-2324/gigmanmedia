@@ -676,6 +676,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 13. Initialize nav logo dropdown interaction & scroll-to-top
+  initNavLogoInteraction();
 });
 
 // --- Hero Word Rotators ---
@@ -760,4 +763,22 @@ function initHeroRotators() {
       newWord.classList.add('is-active');
     }, 3000);
   }
+}
+
+// --- Brand Logo Interaction & Scroll-to-Top Behavior ---
+function initNavLogoInteraction() {
+  const logo = document.querySelector('.logo-wrapper a.logo');
+  if (!logo) return;
+
+  logo.addEventListener('click', e => {
+    // Desktop Only: Override default navigation click
+    if (window.innerWidth > 768) {
+      e.preventDefault();
+      
+      const nav = document.querySelector('nav');
+      if (nav && nav.classList.contains('scrolled')) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  });
 }

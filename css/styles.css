@@ -189,18 +189,149 @@ nav {
 nav.scrolled {
   height: 68px;
 }
-.nav-logo-link {
+.logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.logo {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
-.nav-logo-img {
+.nav-logo {
   height: 60px;
   width: auto;
   transition: height 0.3s ease, opacity 0.3s ease;
 }
-nav.scrolled .nav-logo-img {
+nav.scrolled .nav-logo {
   height: 46px;
+}
+
+/* Monogram Dropdown Menu */
+.monogram-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 1rem;
+  background: rgba(9, 9, 11, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.6rem;
+  min-width: 150px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  
+  /* Hidden states */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  z-index: 1000;
+}
+
+/* Hover Bridge to prevent gap trigger loss */
+.monogram-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -1.25rem;
+  left: 0;
+  right: 0;
+  height: 1.25rem;
+  background: transparent;
+}
+
+/* Trigger only when navigation is at top (not scrolled) */
+.navbar:not(.scrolled) .logo-wrapper:hover .monogram-dropdown,
+nav:not(.scrolled) .logo-wrapper:hover .monogram-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Dropdown Options */
+.monogram-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: var(--sans);
+  transition: all 0.2s ease;
+  cursor: none;
+}
+
+/* Live Indicator Option */
+.monogram-dropdown__item--live {
+  color: #ffffff !important;
+}
+.monogram-dropdown__item--live:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.monogram-dropdown__item--live .dot {
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  display: inline-block;
+}
+.monogram-dropdown__item--live .dot::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  animation: pulseDot 1.5s infinite ease-out;
+}
+
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Media Indicator Option */
+.monogram-dropdown__item--media {
+  color: var(--text-muted) !important;
+}
+.monogram-dropdown__item--media .dot {
+  width: 6px;
+  height: 6px;
+  background-color: #ffbd59;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffbd59;
+  display: inline-block;
+}
+.monogram-dropdown__item--media:hover {
+  color: #ffbd59 !important;
+  background: rgba(255, 189, 89, 0.08);
+}
+
+/* Mobile responsive override */
+@media (max-width: 768px) {
+  .monogram-dropdown {
+    display: none !important;
+  }
 }
 
 /* Light / Dark Theme Logo Toggling */
@@ -1073,8 +1204,8 @@ footer {
 @media (max-width: 480px) {
   nav { padding: 1rem 1.5rem; height: auto; min-height: 70px; }
   nav.scrolled { padding: 0.75rem 1.5rem; height: auto; }
-  .nav-logo-img { height: 40px; }
-  nav.scrolled .nav-logo-img { height: 35px; }
+  .nav-logo-img, .nav-logo { height: 40px; }
+  nav.scrolled .nav-logo-img, nav.scrolled .nav-logo { height: 35px; }
   
   .btn-nav { padding: 0.5rem 0.8rem; font-size: 0.65rem; }
   

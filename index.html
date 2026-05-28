@@ -33,11 +33,21 @@
   <div class="cursor-ring" id="cursor-ring"></div>
 
   <!-- NAVIGATION -->
-  <nav>
-    <a href="#" class="nav-logo-link" aria-label="Gigman Media Logo">
-      <img src="assets/YellowMono.png" class="nav-logo-img logo-light" alt="Gigman Media Logo">
-      <img src="assets/BlackMono.png" class="nav-logo-img logo-dark" alt="Gigman Media Logo">
-    </a>
+  <nav class="navbar">
+    <div class="logo-wrapper">
+      <a href="index.html" class="logo" aria-label="Gigman Media Logo">
+        <img src="assets/YellowMono.png" class="nav-logo logo-light" alt="Brand Logo">
+        <img src="assets/BlackMono.png" class="nav-logo logo-dark" alt="Brand Logo">
+      </a>
+      <div class="monogram-dropdown">
+        <a href="https://www.gigmanlive.com" class="monogram-dropdown__item monogram-dropdown__item--live">
+          <span class="dot"></span> Live
+        </a>
+        <a href="https://www.gigmanmedia.com" target="_blank" class="monogram-dropdown__item monogram-dropdown__item--media">
+          <span class="dot"></span> Media
+        </a>
+      </div>
+    </div>
     <ul class="nav-links">
       <!-- <li><a href="#work">Projects</a></li> -->
       <!-- <li><a href="#services">Services</a></li> -->

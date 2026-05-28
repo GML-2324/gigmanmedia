@@ -267,6 +267,7 @@ nav:not(.scrolled) .logo-wrapper:hover .monogram-dropdown {
   font-weight: 600;
   text-decoration: none;
   font-family: var(--sans);
+  white-space: nowrap;
   transition: all 0.2s ease;
   cursor: none;
 }

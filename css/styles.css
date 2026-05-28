@@ -271,14 +271,14 @@ nav:not(.scrolled) .logo-wrapper:hover .monogram-dropdown {
   cursor: none;
 }
 
-/* Live Indicator Option */
-.monogram-dropdown__item--live {
+/* Media Highlighted Option */
+.monogram-dropdown__item--media {
   color: #ffffff !important;
 }
-.monogram-dropdown__item--live:hover {
+.monogram-dropdown__item--media:hover {
   background: rgba(255, 255, 255, 0.06);
 }
-.monogram-dropdown__item--live .dot {
+.monogram-dropdown__item--media .dot {
   width: 6px;
   height: 6px;
   background-color: #ffffff;
@@ -287,7 +287,7 @@ nav:not(.scrolled) .logo-wrapper:hover .monogram-dropdown {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   display: inline-block;
 }
-.monogram-dropdown__item--live .dot::after {
+.monogram-dropdown__item--media .dot::after {
   content: '';
   position: absolute;
   top: -3px;
@@ -310,11 +310,11 @@ nav:not(.scrolled) .logo-wrapper:hover .monogram-dropdown {
   }
 }
 
-/* Media Indicator Option */
-.monogram-dropdown__item--media {
+/* Live Secondary Option */
+.monogram-dropdown__item--live {
   color: var(--text-muted) !important;
 }
-.monogram-dropdown__item--media .dot {
+.monogram-dropdown__item--live .dot {
   width: 6px;
   height: 6px;
   background-color: #ffbd59;
@@ -322,7 +322,7 @@ nav:not(.scrolled) .logo-wrapper:hover .monogram-dropdown {
   box-shadow: 0 0 8px #ffbd59;
   display: inline-block;
 }
-.monogram-dropdown__item--media:hover {
+.monogram-dropdown__item--live:hover {
   color: #ffbd59 !important;
   background: rgba(255, 189, 89, 0.08);
 }

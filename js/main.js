@@ -771,14 +771,7 @@ function initNavLogoInteraction() {
   if (!logo) return;
 
   logo.addEventListener('click', e => {
-    // Desktop Only: Override default navigation click
-    if (window.innerWidth > 768) {
-      e.preventDefault();
-      
-      const nav = document.querySelector('nav');
-      if (nav && nav.classList.contains('scrolled')) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }

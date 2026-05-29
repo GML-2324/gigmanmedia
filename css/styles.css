@@ -247,13 +247,15 @@ nav.scrolled .nav-logo {
   background: transparent;
 }
 
-/* Trigger only when navigation is at top (not scrolled) */
-.navbar:not(.scrolled) .logo-wrapper:hover .monogram-dropdown,
-nav:not(.scrolled) .logo-wrapper:hover .monogram-dropdown {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
+/* Trigger only when navigation is at top (not scrolled) - Desktop only hover trigger */
+@media (min-width: 1025px) {
+  .navbar:not(.scrolled) .logo-wrapper:hover .monogram-dropdown,
+  nav:not(.scrolled) .logo-wrapper:hover .monogram-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
 }
 
 /* Dropdown Options */
@@ -328,8 +330,8 @@ nav:not(.scrolled) .logo-wrapper:hover .monogram-dropdown {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* Mobile responsive override */
-@media (max-width: 768px) {
+/* Mobile and Tablet responsive override - completely hide and disable the monogram dropdown/selection feature */
+@media (max-width: 1024px) {
   .monogram-dropdown {
     display: none !important;
   }
